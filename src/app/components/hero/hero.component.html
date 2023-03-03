@@ -1,7 +1,7 @@
 <div class="card" style="width: 18rem;">
-    <img src="{{heroImgPath}}" class="card-img-top" alt="...">
+    <img src="{{heroInfo.thumbnail.path+'.'+heroInfo.thumbnail.extension}}" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">{{heroName}}</h5>
-      <a href="#" class="btn btn-primary"> + Info</a>
+      <h5 class="card-title">{{heroInfo.name}}</h5>
+      <a [routerLink]="['hero-info']" class="btn btn-primary"> + Info</a>
     </div>
   </div>

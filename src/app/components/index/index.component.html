@@ -1,0 +1,16 @@
+<div class="container-fluid bg-01">
+    <div class="d-flex justify-content-center align-items-center flex-column search-bar p-5">
+      <img class="logo" src="../assets/logo.png" alt="">
+      <div class="form-outline mt-4">
+        <input type="text" placeholder="Busca miembros" id="form14" class="form-control" [(ngModel)]="searchText" (ngModelChange)="onChange($event)"/>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="row">
+        <div *ngFor="let hero of filteredCharacters" class="col-12 col-md-3 mb-4" [routerLink]="['hero-info']">
+          <app-hero [heroInfo]="hero"></app-hero>
+        </div>
+      </div>
+    </div>
+  </div>
+  

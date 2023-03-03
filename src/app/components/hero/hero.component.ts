@@ -6,8 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./hero.component.scss']
 })
 export class HeroComponent implements OnInit {
-  @Input() heroName!: string;
-  @Input() heroImgPath!: string;
+  @Input() heroInfo!: any;
 
   constructor() { }
 

@@ -1,15 +1,1 @@
-<div class="container-fluid bg-01">
-  <div class="search-bar">
-    <input type="text" name="" id="">
-  </div>
-  <div class="wrapper">
-    <div class="row">
-      <div *ngFor="let hero of marvelCharacters | async" class="col-12 col-md-3 mb-4">
-        <app-hero
-          [heroName]="hero.name"
-          [heroImgPath]="hero.thumbnail.path+'.'+hero.thumbnail.extension">
-        </app-hero>
-      </div>
-    </div>
-  </div>
-</div>
+<router-outlet></router-outlet>

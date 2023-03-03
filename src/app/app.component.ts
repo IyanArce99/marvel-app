@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MarvelService } from './services/marvel.service';
 
@@ -9,14 +10,28 @@ import { MarvelService } from './services/marvel.service';
 })
 export class AppComponent {
   title = 'marvel-app';
-  public marvelCharacters: Observable<any>;
-  constructor(private marvelApi: MarvelService) {
-    this.marvelCharacters = this.marvelApi.getAllCharacter();
-  }
+  public filteredCharacters: Array<any> = [];
+  public initialCharacters: Array<any> = [];
+
+  public searchText: string = '';
+
+  constructor(private marvelApi: MarvelService,
+              private router: Router) {  }
 
   ngOnInit() {
     this.marvelApi.getAllCharacter().subscribe(el => {
-      console.log(el)
-    })
+      this.initialCharacters = el;
+      this.filteredCharacters = this.initialCharacters;
+    });
+  }
+
+  onChange(newValue: any) {
+      let filter = this.initialCharacters.filter((element: any) => element.name.toLowerCase().startsWith(newValue));      
+      this.filteredCharacters = filter;
+      console.log("filtered", this.filteredCharacters);
+  }
+
+  heroProfile() {
+    this.router.navigateByUrl('./hero-info');
   }
 }
